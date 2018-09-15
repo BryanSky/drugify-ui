@@ -94,8 +94,10 @@ export class BarcodeScannerComponent implements OnInit, AfterViewInit {
             this.userService.hasConflict('martin.ponbauer', swissMedicId)
                 .subscribe((data) => {
                     this.hasConflict = false;
+                    this.saveSuccess = undefined;
                 }, (error) => {
                     this.hasConflict = true;
+                    this.saveSuccess = undefined;
                 });
         }
     }
@@ -124,10 +126,12 @@ export class BarcodeScannerComponent implements OnInit, AfterViewInit {
             .subscribe(value => {
                     console.log('Call was a success!');
                     this.saveSuccess = true;
+                    this.hasConflict = undefined;
                 },
                 err => {
                     console.error('Oops:', err.message);
                     this.saveSuccess = false;
+                    this.hasConflict = undefined;
                 });
     }
 }

@@ -1,12 +1,12 @@
 <div class="row">
     <div *ngIf="saveSuccess" class="alert alert-success col-12" role="alert">
-        The drug was successfully added to your personal history
+        Based on your drug history and our peer group comparison, drug intolerance is very unlikely.
     </div>
     <div *ngIf="saveSuccess === false" class="alert alert-danger col-12" role="alert">
         Oops! Something went wrong. Please try again later!
     </div>
     <div *ngIf="hasConflict === true" class="alert alert-warning col-12" role="alert">
-        Look out! There is a potential conflict with your existing medication. Please consult your doctor!
+        You must not take Itinerol while taking Aspirin. Drug intolerance is very likely based on peer group data.
     </div>
 </div>
 
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="example-date-input2" class="col-2 col-form-label">From:</label>
+                        <label for="example-date-input2" class="col-2 col-form-label">To:</label>
                         <div class="col-10">
                             <input class="form-control" name="toDateStr" [formControl]="toDateStr" type="date"  id="example-date-input2">
                         </div>
