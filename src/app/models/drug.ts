@@ -1,7 +1,8 @@
 export interface Drug {
-    authNrs: string;
+    id: string;
     title: string;
     authHolder: string;
     atcCode: string;
     substances: string;
+    authNrs: string;
 }

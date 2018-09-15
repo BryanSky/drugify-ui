@@ -1,3 +1,12 @@
+<div class="row">
+    <div *ngIf="saveSuccess" class="alert alert-success col-12" role="alert">
+        The drug was successfully added to your personal history
+    </div>
+    <div *ngIf="saveSuccess === false" class="alert alert-danger col-12" role="alert">
+        Oops! Something went wrong. Please try again later!
+    </div>
+</div>
+
 <div *ngIf="scannedDrug" class="row">
     <div class="col-12">
         <div class="card card-chart">

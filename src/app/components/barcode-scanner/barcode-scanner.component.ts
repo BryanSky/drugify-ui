@@ -5,6 +5,7 @@ import {Drug} from '../../models/drug';
 import {FormControl, FormGroup} from '@angular/forms';
 import {UserService} from '../../services/users/user.service';
 import {environment} from '../../../environments/environment';
+import {DrugHistory} from '../../models/drugHistory';
 
 @Component({
     selector: 'app-barcode-scanner',
@@ -16,6 +17,7 @@ export class BarcodeScannerComponent implements OnInit, AfterViewInit {
     public inputValue: string;
     public scannedDrug: Drug;
     public hasConflict: boolean;
+    public saveSuccess: boolean;
     public retryScan = false;
 
 
@@ -113,14 +115,15 @@ export class BarcodeScannerComponent implements OnInit, AfterViewInit {
     public addToHistory() {
         const fromDate = new Date(this.fromDateStr.value);
         const toDate = new Date(this.toDateStr.value);
-        const drugHistory = {
-            start: fromDate.getTime(),
-            end: toDate.getTime(),
-            swissMedicId: this.scannedDrug.authNrs,
-            title: this.scannedDrug.title
-        };
-        this.userService.saveDrugHistoryItem(environment.dummyUsername, drugHistory).subscribe((data) => {
-            console.log('save call was a sucess!');
-        });
+
+        this.userService.createDrugHistory('martin.ponbauer', this.scannedDrug)
+            .subscribe(value => {
+                    console.log('Call was a success!');
+                    this.saveSuccess = true;
+                },
+                err => {
+                    console.error('Oops:', err.message);
+                    this.saveSuccess = false;
+                });
     }
 }

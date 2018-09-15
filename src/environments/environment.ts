@@ -5,6 +5,6 @@
 
 export const environment = {
     production: false,
-    drugServerBaseUrl: 'http://127.0.0.1:8080',
-    dummyUsername: 'martin.ponbauer@gmail.com'
+    drugServerBaseUrl: 'http://drugify-server.mpbauer.com',
+    username: 'martin.ponbauer'
 };

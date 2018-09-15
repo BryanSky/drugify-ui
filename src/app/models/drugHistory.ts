@@ -1,8 +1,13 @@
 
 export interface DrugHistory {
-    swissMedicId: string;
-    start: number;
-    end: number;
+    id?: string;
+    username: string;
     title: string;
+    authHolder: string;
+    atcCode: string;
+    substances: string;
+    authNrs: string;
+    createdAt ?: string;
+    updatedAt ?: string;
 }
 
