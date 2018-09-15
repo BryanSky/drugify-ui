@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+    production: true,
+    drugServerBaseUrl: 'http://127.0.0.1'
 };
