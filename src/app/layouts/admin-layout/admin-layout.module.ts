@@ -12,6 +12,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { BarcodeScannerComponent } from '../../components/barcode-scanner/barcode-scanner.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
     TypographyComponent,
     IconsComponent,
     NotificationsComponent,
+      BarcodeScannerComponent
   ]
 })
 
