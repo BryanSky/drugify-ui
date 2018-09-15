@@ -113,7 +113,7 @@ Now Ui Dashboard
 │   │       ├── user-profile.component.css
 │   │       ├── user-profile.component.html
 │   │       ├── user-profile.component.spec.ts
-│   │       └── drug-finder.component.ts
+│   │       └── drug-scanner.component.ts
 │   ├── assets
 │   │   ├── demo
 │   │   ├── fonts

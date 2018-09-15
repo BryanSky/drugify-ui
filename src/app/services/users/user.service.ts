@@ -15,7 +15,7 @@ const httpOptions = {
 };
 
 @Injectable()
-export class DrugsService {
+export class UserService {
     private readonly drugUrl = `${environment.drugServerBaseUrl}/hack/api/drugs`;
     private readonly drugHistoryUrl = `${environment.drugServerBaseUrl}/hack/api/drugs`;
 
