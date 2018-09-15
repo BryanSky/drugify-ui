@@ -5,5 +5,5 @@
 
 export const environment = {
     production: false,
-    drugServerBaseUrl: 'https://health.axa.ch'
+    drugServerBaseUrl: 'http://127.0.0.1:8080'
 };

@@ -9,15 +9,14 @@ import {Drug} from '../../models/drug';
 
 const httpOptions = {
     headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'simple scent'
+        'Content-Type':  'text/plain'  // This fixes the issue with pre-flight requests (POST requests became OPTIONS requests)
     })
 };
 
 @Injectable()
 export class DrugsService {
-    private readonly drugUrl = `${environment.drugServerBaseUrl}/hack/api/drugs`;
-    private readonly drugHistoryUrl = `${environment.drugServerBaseUrl}/hack/api/drugs`;
+    private readonly drugUrl = `${environment.drugServerBaseUrl}/api/drugs`;
+    private readonly drugHistoryUrl = `${environment.drugServerBaseUrl}/api/drugs`;
 
     public constructor(private httpClient: HttpClient) {
     }
