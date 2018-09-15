@@ -1,0 +1,14 @@
+<div class="panel-header panel-header-sm">
+    <div class="container">
+        <h3 id="drug-finder-header">Drug Finder</h3>
+    </div>
+</div>
+<div class="main-content">
+    <h5>Here are more information:</h5>
+  <div class="row" *ngIf="drug">
+      <p>Title: {{drug.title}}</p><br/>
+      <p>Swiss Medic Id: {{drug.swissMedicIds}}</p><br/>
+      <p>Atc Code: {{drug.atcCode}}</p><br/>
+      <p>Substances: {{drug.substances}}</p><br/>
+  </div>
+</div>

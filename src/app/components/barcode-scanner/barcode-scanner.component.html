@@ -1,0 +1,59 @@
+<div class="row">
+    <div *ngIf="saveSuccess" class="alert alert-success col-12" role="alert">
+        The drug was successfully added to your personal history
+    </div>
+    <div *ngIf="saveSuccess === false" class="alert alert-danger col-12" role="alert">
+        Oops! Something went wrong. Please try again later!
+    </div>
+</div>
+
+<div *ngIf="scannedDrug" class="row">
+    <div class="col-12">
+        <div class="card card-chart">
+            <div class="card-header">
+                <h5 class="card-category">Drug Details</h5>
+                <h4 class="card-title">{{scannedDrug.title}}</h4>
+            </div>
+            <div class="card-body">
+                <h6>Swiss Medic Id:</h6><p>{{scannedDrug.authNrs}}</p>
+            </div>
+            <div class="card-footer">
+                <form>
+                    <div class="form-group row">
+                        <label for="example-date-input1" class="col-2 col-form-label">From:</label>
+                        <div class="col-10">
+                            <input class="form-control" name="fromDateStr" [formControl]="fromDateStr" type="date" id="example-date-input1">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-date-input2" class="col-2 col-form-label">From:</label>
+                        <div class="col-10">
+                            <input class="form-control" name="toDateStr" [formControl]="toDateStr" type="date"  id="example-date-input2">
+                        </div>
+                    </div>
+                    <div *ngIf="hasConflict" class="stats"><i class="now-ui-icons ui-1_simple-remove"></i>Potential
+                        conflict
+                        detected
+                    </div>
+                    <div *ngIf="!hasConflict" class="stats"><i class="now-ui-icons ui-1_check"></i>This drug seems to be
+                        fine with your current drug history
+                    </div>
+                    <button id="add-drug-to-history-btn" class="btn btn-success" (click)="addToHistory()">Add drug to
+                        history
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="barcode-scan-container">
+    <div class="row">
+        <div class="col-12">
+            <button id="scandit-retry-button" *ngIf="retryScan" class="btn btn-primary"
+                    (click)="continueScanning()">Continue Scanning
+            </button>
+        </div>
+    </div>
+    <div id="scandit-barcode-picker"></div>
+    <div id="scandit-barcode-result">No codes scanned yet</div>
+</div>

@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+    production: true,
+    drugServerBaseUrl: 'http://drugify-server.mpbauer.com',
+    username: 'martin.ponbauer'
 };

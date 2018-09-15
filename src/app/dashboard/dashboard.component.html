@@ -5,14 +5,16 @@
 </div>
 
 <div class="main-content">
-    <div class="row">
-        <div class="col-lg-4">
+    <div *ngIf="drugHistoryElements" class="row">
+        <div *ngFor="let historyElement of drugHistoryElements" class="col-12">
             <div class="card card-chart">
                 <div class="card-header">
-                    <h5 class="card-category">Global Sales</h5>
-                    <h4 class="card-title">Shipped Products</h4>
+                    <h5 class="card-category">Drug Details</h5>
+                    <h4 class="card-title">{{historyElement.title}}</h4>
                     <div ngbDropdown>
-                        <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" ngbDropdownToggle>
+                        <button type="button"
+                                class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret"
+                                ngbDropdownToggle>
                             <i class="now-ui-icons loader_gear"></i>
                         </button>
                         <div ngbDropdownMenu class="dropdown-menu-right">
@@ -28,47 +30,6 @@
                 <div class="card-footer">
                     <div class="stats">
                         <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-            <div class="card card-chart">
-                <div class="card-header">
-                    <h5 class="card-category">2018 Sales</h5>
-                    <h4 class="card-title">All products</h4>
-                    <div ngbDropdown>
-                        <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" ngbDropdownToggle>
-                            <i class="now-ui-icons loader_gear"></i>
-                        </button>
-                        <div ngbDropdownMenu class="dropdown-menu-right">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <a class="dropdown-item text-danger" href="#">Remove Data</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-            <div class="card card-chart">
-                <div class="card-header">
-                    <h5 class="card-category">Email Statistics</h5>
-                    <h4 class="card-title">24 Hours Performance</h4>
-                </div>
-                <div class="card-body">
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="now-ui-icons ui-2_time-alarm"></i> Last 7 days
                     </div>
                 </div>
             </div>
