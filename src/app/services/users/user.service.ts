@@ -10,7 +10,7 @@ import {Drug} from '../../models/drug';
 
 const httpOptions = {
     headers: new HttpHeaders({
-        'Content-Type':  'text/plain'  // This fixes the issue with pre-flight requests (POST requests became OPTIONS requests)
+        'Content-Type': 'text/plain'  // This fixes the issue with pre-flight requests (POST requests became OPTIONS requests)
     })
 };
 
@@ -22,7 +22,7 @@ export class UserService {
     public constructor(private httpClient: HttpClient) {
     }
 
-    public createDrugHistory(userId: string, drug: Drug): Observable<DrugHistory> {
+    public createDrugHistory(userId: string, drug: Drug, fromDate: string, toDate: string): Observable<DrugHistory> {
         const url = `${this.userBaseUrl}/${userId}/drugs`;
         const drugHistory: DrugHistory = {
             atcCode: drug.atcCode,
@@ -30,10 +30,16 @@ export class UserService {
             substances: drug.substances,
             title: drug.title,
             username: this.username,
-            authNrs: drug.authNrs
+            authNrs: drug.authNrs,
+            fromDate: fromDate,
+            toDate: toDate
         };
         return this.httpClient.post<DrugHistory>(url, drugHistory, httpOptions);
+    }
 
+    public hasConflict(userId: string, swissMedicId: string): Observable<any> {
+        const url = `${this.userBaseUrl}/${userId}/drugs/${swissMedicId}`;
+        return this.httpClient.get<any>(url, httpOptions);
     }
 
     public getDrugHistoryByUserId(userId: string): Observable<DrugHistory[]> {

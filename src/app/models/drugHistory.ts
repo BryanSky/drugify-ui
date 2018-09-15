@@ -1,4 +1,3 @@
-
 export interface DrugHistory {
     id?: string;
     username: string;
@@ -7,7 +6,9 @@ export interface DrugHistory {
     atcCode: string;
     substances: string;
     authNrs: string;
-    createdAt ?: string;
-    updatedAt ?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    fromDate: string;
+    toDate: string;
 }
 

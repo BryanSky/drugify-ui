@@ -5,6 +5,9 @@
     <div *ngIf="saveSuccess === false" class="alert alert-danger col-12" role="alert">
         Oops! Something went wrong. Please try again later!
     </div>
+    <div *ngIf="hasConflict === true" class="alert alert-warning col-12" role="alert">
+        Look out! There is a potential conflict with your existing medication. Please consult your doctor!
+    </div>
 </div>
 
 <div *ngIf="scannedDrug" class="row">
