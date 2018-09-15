@@ -32,7 +32,6 @@
     "chartist": "0.11.0",
     "classlist.js": "1.1.20150312",
     "copy-webpack-plugin": "4.3.0",
-    "cordova-android": "^7.0.0",
     "cordova-plugin-barcodescanner": "^0.7.4",
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.2",
@@ -83,8 +82,6 @@
       "cordova-plugin-device": {},
       "cordova-plugin-barcodescanner": {}
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   }
 }
