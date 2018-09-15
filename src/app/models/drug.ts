@@ -1,7 +1,7 @@
 export interface Drug {
-    swissMedicIds: string[];
+    authNrs: string;
     title: string;
     authHolder: string;
     atcCode: string;
-    substances: string[];
+    substances: string;
 }

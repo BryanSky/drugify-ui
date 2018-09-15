@@ -5,6 +5,7 @@ import 'rxjs/add/observable/of';
 import {Observable} from 'rxjs/Observable';
 
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {DrugHistory} from '../../models/drugHistory';
 import {Drug} from '../../models/drug';
 
 const httpOptions = {
@@ -14,19 +15,18 @@ const httpOptions = {
 };
 @Injectable()
 export class UserService {
-    private readonly drugUrl = `${environment.drugServerBaseUrl}/api/drugs`;
-    private readonly drugHistoryUrl = `${environment.drugServerBaseUrl}/api/drugs`;
+    private readonly userBaseUrl = `${environment.drugServerBaseUrl}/api/users`;
 
     public constructor(private httpClient: HttpClient) {
     }
 
-    public getDrugById(swissMedicId: string): Observable<Drug> {
-        const url = `${this.drugUrl}/${swissMedicId}`;
-        return this.httpClient.get<Drug>(url, httpOptions);
+    public getDrugHistoryByUserId(userId: string): Observable<DrugHistory> {
+        const url = `${this.userBaseUrl}/${userId}/drugs`;
+        return this.httpClient.get<DrugHistory>(url, httpOptions);
     }
 
-    public getDrugHistoryByUserId(userId: string): Observable<Drug> {
-        const url = `${this.drugHistoryUrl}/${userId}`;
-        return this.httpClient.get<Drug>(url, httpOptions);
+    public saveDrugHistoryItem(userId: string, drugHistory: DrugHistory): Observable<any> {
+        const url = `${this.userBaseUrl}/${userId}/drugs`;
+        return this.httpClient.post<any>(url, drugHistory, httpOptions);
     }
 }

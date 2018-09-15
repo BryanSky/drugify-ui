@@ -20,6 +20,7 @@ import {DrugScannerComponent} from '../../drug-scanner/drug-scanner.component';
         FormsModule,
         ChartsModule,
         NgbModule,
+        ReactiveFormsModule,
         ToastrModule.forRoot()
     ],
     declarations: [

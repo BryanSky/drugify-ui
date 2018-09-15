@@ -1,8 +1,8 @@
 
 export interface DrugHistory {
-    swissMedicIds: string[];
+    swissMedicId: string;
+    start: number;
+    end: number;
     title: string;
-    authHolder: string;
-    atcCode: string;
-    substances: string[];
 }
+
