@@ -48,6 +48,22 @@ export class BarcodeScannerComponent implements OnInit, AfterViewInit {
             this.picker.pauseScanning();
         }
     }
+    
+    private handleScanSuccess(result): void{
+        console.log('The barcode value is: ', result);
+        const swissMedicId = this.extractSwissMedicId(result);
+
+        if (swissMedicId) {
+            this.drugService.getDrugById(swissMedicId)
+                .subscribe((data) => {
+                    this.scannedDrug = data;
+                });
+        }
+    }
+
+    private handleFail(): void{
+
+    }
 
     private initializeScanner(): void {
         // Configure the library and activate it with a license key
