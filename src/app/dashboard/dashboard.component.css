@@ -10,3 +10,10 @@
     height:90px;
     margin-bottom: 60px;
 }
+
+.card-body p:last-of-type{
+    margin-bottom: 2px;
+}
+.card-footer{
+    margin-top: 2px;
+}

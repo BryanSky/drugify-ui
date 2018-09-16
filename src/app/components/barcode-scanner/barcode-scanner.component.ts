@@ -90,6 +90,15 @@ export class BarcodeScannerComponent implements OnInit, AfterViewInit {
                 .subscribe((data) => {
                     this.scannedDrug = data;
                 });
+
+            this.userService.hasConflict('martin.ponbauer', swissMedicId)
+                .subscribe((data) => {
+                    this.hasConflict = false;
+                    this.saveSuccess = undefined;
+                }, (error) => {
+                    this.hasConflict = true;
+                    this.saveSuccess = undefined;
+                });
         }
     }
 
@@ -113,17 +122,16 @@ export class BarcodeScannerComponent implements OnInit, AfterViewInit {
     }
 
     public addToHistory() {
-        const fromDate = new Date(this.fromDateStr.value);
-        const toDate = new Date(this.toDateStr.value);
-
-        this.userService.createDrugHistory('martin.ponbauer', this.scannedDrug)
+        this.userService.createDrugHistory('martin.ponbauer', this.scannedDrug, this.fromDateStr.value, this.fromDateStr.value)
             .subscribe(value => {
                     console.log('Call was a success!');
                     this.saveSuccess = true;
+                    this.hasConflict = undefined;
                 },
                 err => {
                     console.error('Oops:', err.message);
                     this.saveSuccess = false;
+                    this.hasConflict = undefined;
                 });
     }
 }

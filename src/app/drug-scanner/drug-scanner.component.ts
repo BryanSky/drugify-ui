@@ -16,5 +16,4 @@ export class DrugScannerComponent implements OnInit {
 
     ngOnInit() {
     }
-
 }
